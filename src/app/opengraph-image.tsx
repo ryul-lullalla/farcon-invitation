@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-
+import NextImage from "next/image";
 export const alt = "Farcaster Frames V2 Demo";
 export const size = {
   width: 600,
@@ -12,7 +12,7 @@ export default async function Image() {
   return new ImageResponse(
     (
       <div tw="h-full w-full flex flex-col justify-center items-center relative bg-white">
-        <h1 tw="text-6xl">Invitation to Lum0x at Farcon</h1>
+        <NextImage src="/lum0x.png" alt={alt} width={600} height={400} />
       </div>
     ),
     {
