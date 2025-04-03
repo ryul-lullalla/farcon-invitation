@@ -18,7 +18,7 @@ export default async function Image() {
       <div
         tw="h-full w-full flex flex-col justify-center items-center relative"
         style={{
-          backgroundImage: `url(${appUrl}/opengraph-image.png)`,
+          backgroundImage: `url(https://lum0x-farcon-invitation.vercel.app/opengraph-image.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
