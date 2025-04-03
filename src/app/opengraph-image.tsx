@@ -18,7 +18,7 @@ export default async function Image() {
       <div
         tw="h-full w-full flex flex-col justify-center items-center relative"
         style={{
-          backgroundImage: `url(https://lum0x-farcon-invitation.vercel.app/lum0x.png)`,
+          backgroundImage: `url(https://lum0x-invitation.vercel.app/lum0x.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
