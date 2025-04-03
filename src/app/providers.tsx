@@ -1,8 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { Session } from "next-auth"
-import { SessionProvider } from "next-auth/react"
+import type { Session } from "next-auth";
+// import { SessionProvider } from "next-auth/react"
 import { FrameProvider } from "~/components/providers/FrameProvider";
 
 const WagmiProvider = dynamic(
@@ -12,14 +12,18 @@ const WagmiProvider = dynamic(
   }
 );
 
-export function Providers({ session, children }: { session: Session | null, children: React.ReactNode }) {
+export function Providers({
+  // session,
+  children,
+}: {
+  session: Session | null;
+  children: React.ReactNode;
+}) {
   return (
-    <SessionProvider session={session}>
-      <WagmiProvider>
-        <FrameProvider>
-          {children}
-        </FrameProvider>
-      </WagmiProvider>
-    </SessionProvider>
+    // <SessionProvider session={session}>
+    <WagmiProvider>
+      <FrameProvider>{children}</FrameProvider>
+      {/* </SessionProvider> */}
+    </WagmiProvider>
   );
 }

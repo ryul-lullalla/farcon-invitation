@@ -2,10 +2,9 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { Input } from "../components/ui/input";
-import { signIn, signOut, getCsrfToken } from "next-auth/react";
-import sdk, {
-  SignIn as SignInCore,
-} from "@farcaster/frame-sdk";
+// import { signIn, signOut, getCsrfToken } from "next-auth/react";
+// import sdk, { SignIn as SignInCore } from "@farcaster/frame-sdk";
+import sdk from "@farcaster/frame-sdk";
 import {
   useAccount,
   useSendTransaction,
@@ -23,14 +22,22 @@ import { Button } from "~/components/ui/Button";
 import { truncateAddress } from "~/lib/truncateAddress";
 import { base, degen, mainnet, optimism, unichain } from "wagmi/chains";
 import { BaseError, UserRejectedRequestError } from "viem";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { Label } from "~/components/ui/label";
 import { useFrame } from "~/components/providers/FrameProvider";
 
 export default function Demo(
   { title }: { title?: string } = { title: "Frames v2 Demo" }
 ) {
-  const { isSDKLoaded, context, added, notificationDetails, lastEvent, addFrame, addFrameResult } = useFrame();
+  const {
+    isSDKLoaded,
+    context,
+    added,
+    notificationDetails,
+    lastEvent,
+    addFrame,
+    addFrameResult,
+  } = useFrame();
   const [isContextOpen, setIsContextOpen] = useState(false);
   const [txHash, setTxHash] = useState<string | null>(null);
 
@@ -490,56 +497,56 @@ function SendEth() {
 }
 
 function SignIn() {
-  const [signingIn, setSigningIn] = useState(false);
-  const [signingOut, setSigningOut] = useState(false);
-  const [signInResult, setSignInResult] = useState<SignInCore.SignInResult>();
-  const [signInFailure, setSignInFailure] = useState<string>();
-  const { data: session, status } = useSession();
+  // const [signingIn, setSigningIn] = useState(false);
+  // const [signingOut, setSigningOut] = useState(false);
+  // const [signInResult, setSignInResult] = useState<SignInCore.SignInResult>();
+  // const [signInFailure, setSignInFailure] = useState<string>();
+  // const { data: session, status } = useSession();
 
-  const getNonce = useCallback(async () => {
-    const nonce = await getCsrfToken();
-    if (!nonce) throw new Error("Unable to generate nonce");
-    return nonce;
-  }, []);
+  // const getNonce = useCallback(async () => {
+  //   const nonce = await getCsrfToken();
+  //   if (!nonce) throw new Error("Unable to generate nonce");
+  //   return nonce;
+  // }, []);
 
-  const handleSignIn = useCallback(async () => {
-    try {
-      setSigningIn(true);
-      setSignInFailure(undefined);
-      const nonce = await getNonce();
-      const result = await sdk.actions.signIn({ nonce });
-      setSignInResult(result);
+  // const handleSignIn = useCallback(async () => {
+  //   try {
+  //     setSigningIn(true);
+  //     setSignInFailure(undefined);
+  //     const nonce = await getNonce();
+  //     const result = await sdk.actions.signIn({ nonce });
+  //     setSignInResult(result);
 
-      await signIn("credentials", {
-        message: result.message,
-        signature: result.signature,
-        redirect: false,
-      });
-    } catch (e) {
-      if (e instanceof SignInCore.RejectedByUser) {
-        setSignInFailure("Rejected by user");
-        return;
-      }
+  //     await signIn("credentials", {
+  //       message: result.message,
+  //       signature: result.signature,
+  //       redirect: false,
+  //     });
+  //   } catch (e) {
+  //     if (e instanceof SignInCore.RejectedByUser) {
+  //       setSignInFailure("Rejected by user");
+  //       return;
+  //     }
 
-      setSignInFailure("Unknown error");
-    } finally {
-      setSigningIn(false);
-    }
-  }, [getNonce]);
+  //     setSignInFailure("Unknown error");
+  //   } finally {
+  //     setSigningIn(false);
+  //   }
+  // }, [getNonce]);
 
-  const handleSignOut = useCallback(async () => {
-    try {
-      setSigningOut(true);
-      await signOut({ redirect: false });
-      setSignInResult(undefined);
-    } finally {
-      setSigningOut(false);
-    }
-  }, []);
+  // const handleSignOut = useCallback(async () => {
+  //   try {
+  //     setSigningOut(true);
+  //     await signOut({ redirect: false });
+  //     setSignInResult(undefined);
+  //   } finally {
+  //     setSigningOut(false);
+  //   }
+  // }, []);
 
   return (
     <>
-      {status !== "authenticated" && (
+      {/* {status !== "authenticated" && (
         <Button onClick={handleSignIn} disabled={signingIn}>
           Sign In with Farcaster
         </Button>
@@ -548,8 +555,8 @@ function SignIn() {
         <Button onClick={handleSignOut} disabled={signingOut}>
           Sign out
         </Button>
-      )}
-      {session && (
+      )} */}
+      {/* {session && (
         <div className="my-2 p-2 text-xs overflow-x-scroll bg-gray-100 rounded-lg font-mono">
           <div className="font-semibold text-gray-500 mb-1">Session</div>
           <div className="whitespace-pre">
@@ -567,10 +574,10 @@ function SignIn() {
         <div className="my-2 p-2 text-xs overflow-x-scroll bg-gray-100 rounded-lg font-mono">
           <div className="font-semibold text-gray-500 mb-1">SIWF Result</div>
           <div className="whitespace-pre">
-            {JSON.stringify(signInResult, null, 2)}
+            {JSON.stringify(signInResult, null, 2)}s
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 }
@@ -623,4 +630,3 @@ const renderError = (error: Error | null) => {
 
   return <div className="text-red-500 text-xs mt-1">{error.message}</div>;
 };
-
