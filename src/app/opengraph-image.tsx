@@ -8,6 +8,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const appUrl = process.env.NEXT_PUBLIC_URL;
+
   return new ImageResponse(
     (
       // <div tw="h-full w-full flex flex-col justify-center items-center relative p-10">
@@ -16,7 +18,7 @@ export default async function Image() {
       <div
         tw="h-full w-full flex flex-col justify-center items-center relative"
         style={{
-          backgroundImage: "url(https://yoink.party/frame.png)",
+          backgroundImage: `url(${appUrl}/opengraph-image.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
