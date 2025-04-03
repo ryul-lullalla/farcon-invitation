@@ -118,7 +118,7 @@ export async function getFarcasterMetadata(): Promise<FrameMetadata> {
       homeUrl: appUrl,
       imageUrl: `${appUrl}/lum0x.png`,
       buttonTitle: process.env.NEXT_PUBLIC_FRAME_BUTTON_TEXT || "Launch Frame",
-      splashImageUrl: `${appUrl}/splash.png`,
+      splashImageUrl: `${appUrl}/splash_logo.png`,
       splashBackgroundColor: "#000000",
       webhookUrl,
     },
