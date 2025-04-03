@@ -8,7 +8,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  const appUrl = process.env.NEXT_PUBLIC_URL;
+  // const appUrl = process.env.NEXT_PUBLIC_URL;
 
   return new ImageResponse(
     (
