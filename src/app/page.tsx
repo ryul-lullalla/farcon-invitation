@@ -7,10 +7,11 @@ const appUrl = process.env.NEXT_PUBLIC_URL;
 const appName = process.env.NEXT_PUBLIC_FRAME_NAME;
 const splashImageUrl = `${appUrl}/splash_logo.png`;
 const iconUrl = `${appUrl}/icon.png`;
-
+// https://apemash.it/images/clashes/farcaster-vs-warpcast
 const framePreviewMetadata = {
   version: "next",
-  imageUrl: `${appUrl}/lum0x.png`,
+  // imageUrl: `https://apemash.it/images/clashes/farcaster-vs-warpcast`,
+  imageUrl: `${appUrl}/opengraph-image`,
   button: {
     title: process.env.NEXT_PUBLIC_FRAME_BUTTON_TEXT,
     action: {
@@ -39,6 +40,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
+export default function Page() {
   return <App />;
 }

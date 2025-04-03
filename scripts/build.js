@@ -185,7 +185,7 @@ async function generateFarcasterMetadata(
       name: process.env.NEXT_PUBLIC_FRAME_NAME,
       iconUrl: `https://${domain}/icon.png`,
       homeUrl: `https://${domain}`,
-      imageUrl: `https://${domain}/lum0x.png`,
+      imageUrl: `https://${domain}/opengraph-image`,
       buttonTitle: process.env.NEXT_PUBLIC_FRAME_BUTTON_TEXT,
       splashImageUrl: `https://${domain}/splash_logo.png`,
       splashBackgroundColor: "#000000",
