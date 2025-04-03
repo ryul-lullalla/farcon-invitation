@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import NextImage from "next/image";
 export const alt = "Farcaster Frames V2 Demo";
 export const size = {
   width: 600,
