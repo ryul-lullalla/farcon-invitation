@@ -8,10 +8,10 @@ const appName = process.env.NEXT_PUBLIC_FRAME_NAME;
 const splashImageUrl = `${appUrl}/splash_logo.png`;
 const iconUrl = `${appUrl}/icon.png`;
 // https://apemash.it/images/clashes/farcaster-vs-warpcast
+// imageUrl: `https://apemash.it/images/clashes/farcaster-vs-warpcast`,
 const framePreviewMetadata = {
   version: "next",
-  // imageUrl: `https://apemash.it/images/clashes/farcaster-vs-warpcast`,
-  imageUrl: `${appUrl}/opengraph-image`,
+  imageUrl: `${appUrl}/images/icon.png`,
   button: {
     title: process.env.NEXT_PUBLIC_FRAME_BUTTON_TEXT,
     action: {
