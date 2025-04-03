@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import NextImage from "next/image";
 
 export const alt = process.env.NEXT_PUBLIC_FRAME_NAME || "Frames V2 Demo";
 export const size = {
@@ -13,7 +14,8 @@ export default async function Image() {
   return new ImageResponse(
     (
       <div tw="h-full w-full flex flex-col justify-center items-center relative bg-white">
-        <h1 tw="text-6xl">{alt}</h1>
+        {/* <h1 tw="text-6xl">{alt}</h1> */}
+        <NextImage src="/splash_logo.png" alt={alt} width={600} height={400} />
       </div>
     ),
     {
