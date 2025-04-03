@@ -19,7 +19,7 @@ const framePreviewMetadata = {
       url: appUrl,
       splashImageUrl,
       iconUrl,
-      splashBackgroundColor: "#f7f7f7",
+      splashBackgroundColor: "#000000",
     },
   },
 };
